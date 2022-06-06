@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<header>
+
+    <div class="header-top flex justify-between h-[80px] w-[1200px] m-auto">
+        <figure class="logo pt-5">
+            <a routerLink="/">
+                <img src="https://rafcart.rslahmed.com/assets/images/svg/logo.svg" width="150px">
+            </a>
+        </figure>
+        <div>
+            <ul class="w-[700px] mt-5 pl-10 flex ">
+                <li><a class="px-[20px]" routerLink="">Homepage</a></li>
+                <li><a class="px-[20px]" routerLink="/product">Product</a></li>
+                <li><a class="px-[20px]" routerLink="/about">Blog</a></li>
+                <li><a class="px-[20px]" routerLink="#">Phone</a></li>
+                <li><a class="px-[20px]" routerLink="#">Contact</a></li>
+
+            </ul>
+        </div>
+        <div class="flex mt-[30px] text-center checksn">
+
+
+
+            <div class="signin pl-3">
+
+                <ul class="flex">
+
+                    <a _ngcontent-dlh-c51="" routerlink="#" ng-reflect-router-link="#" href="/%23"><button _ngcontent-dlh-c51="" type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sing in</button></a>
+                    <a _ngcontent-dlh-c51="" routerlink="#" ng-reflect-router-link="#" href="/%23"><button _ngcontent-dlh-c51="" type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-danger hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sing up</button></a>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="bg-[#fd3d57]">
+
+
+
+        <div class="header-top bg-[#fd3d57] flex justify-between h-[80px] w-[1200px] m-auto">
+            <div class="nav pt-4">
+                <div>
+                    <button class="bg-[#2b2d42] text-[#ffffff] hover:text-[#ff0000] px-[20px] py-[8px] ">All categories</button>
+                </div>
+            </div>
+            <form action="/search" class="w-[700px] mt-4 pl-10 flex ">
+                <input type="text" class="h-10 w-10/12 pl-3 rounded-sm" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" name="keyword">
+                <div>
+                    <button class="bg-[#2b2d42] text-[#ffffff] hover:text-[#ff0000] px-[20px] py-[8px] rounded-r-lg">Tìm kiếm</button>
+                </div>
+            </form>
+            <div class="flex mt-4 text-center ">
+
+                <div class="signin pl-4">
+
+                    <ul class="flex">
+                        <a routerLink="/#//cart"> <button class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[blue] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Gio Hàng </button></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<article class=" mx-auto w-[1200px] ">
+    <router-outlet></router-outlet>
+</article>
+<footer class="  min-w-full m-auto bg-[#f3f3f3]">
+    <div class=" w-[1200px] m-auto grid grid-cols-4 pt-10 pb-10 gap-[20px] ">
+        <div class="w-[320px] px-[20px] ">
+            <div>
+                <img src="https://rafcart.rslahmed.com/assets/images/svg/logo.svg" alt="">
+            </div>
+            <p class="py-[10px] leading-5"><a routerLink="#">Lorem ipsum, or it is sometimes kno wn, is dummy text used in laying out print.</a></p>
+            <div>
+                <div class="footer_newslet">
+                    <h6 class="font-bold py-[10px]">NEWSLETTER</h6>
+                    <form class="footernews_form">
+                        <input type="text" placeholder="Your email address" class="py-[10px] rounded-lg bg-none">
+                        <a routerLink="#">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sing in</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="intro px-[20px]">
+            <div>
+                <h2 class="font-bold ">MY ACCOUNT</h2>
+            </div>
+            <div class="pt-[10px] leading-8">
+                <p><a routerLink="">Orders</a></p>
+                <p><a routerLink="">Wishlist</a></p>
+                <p><a routerLink="">Track Order</a></p>
+                <p><a routerLink="">Manage Account</a></p>
+                <p><a routerLink="">Return Order</a></p>
+            </div>
+        </div>
+        <div class="intro px-[20px]">
+            <div>
+                <h2 class="font-bold "> INFORMATION</h2>
+            </div>
+            <div class="pt-[10px] leading-8">
+                <p><a routerLink="">About Us</a></p>
+                <p><a routerLink="">Return Policy</a></p>
+                <p><a routerLink="">Terms & condition</a></p>
+                <p><a routerLink="">Privacy Policy</a></p>
+                <p><a routerLink="">
+FAQ</a></p>
+            </div>
+        </div>
+        <div class="intro px-[20px]">
+            <div>
+                <h2 class="font-bold leading-8 ">CONTACT</h2>
+            </div>
+            <div class="pt-[10px] leading-8">
+                <p><a routerLink="">Tòa nhà FPT Polytechnic, P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà Nội</a></p>
+                <p><a routerLink="">Phone :+566 477 256, +566 254 575</a></p>
+                <p><a routerLink="">Email : Thetam1998@gmail.com</a></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="py-3 bg-[#2b2d42] text-center text-xs text-[#ffffff]">
+        <p>© RAFCART - All Rights Reserved</p>
+    </div>
+</footer>
+
+<body>
+
+</body>
+
+</html>
