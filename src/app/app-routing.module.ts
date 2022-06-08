@@ -43,10 +43,7 @@ const routes: Routes = [
             path: '',
             component: AdminProductListComponent
           },
-          {
-            path: ':id',
-            component: AdminProductDetailComponent
-          },
+
           {
             path: 'create',
             component: AdminProductFormComponent
@@ -55,8 +52,13 @@ const routes: Routes = [
             path: 'edit/:id',
             component: AdminProductFormComponent
           },
+          {
+            path: ':id',
+            component: AdminProductDetailComponent
+          },
         ]
       },
+
     ]
   }
 ];

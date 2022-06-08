@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class HomeClientComponent implements OnInit {
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1000/500`);
+  images = [944, 1011, 984].map((n) => `https://thietkehosonangluc.edu.vn/uploads/images/thiet-ke-do-hoa-khac/banner-sach/1.png`, `https://sachsuthattphcm.com.vn/wp-content/uploads/2020/11/banner.jpg`);
   constructor() { }
 
   ngOnInit(): void {
