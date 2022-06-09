@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostListComponent } from './components/client-pages/post-list/post-list.component';
 import { ProductsListComponent } from './components/client-pages/products-list/products-list.component';
+import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
@@ -55,18 +56,22 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'signin',
-    component: SigninComponent,
-
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
-
+    path: 'auth',
+    children: [
+      {
+        path: 'signin',
+        component: SigninComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      }
+    ]
   },
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [CanAccessAdminGuard],
     children: [
       {
         path: 'products',
@@ -98,6 +103,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CanAccessAdminGuard] // Đưa vào để các route trên có thể sử dụng
 })
 export class AppRoutingModule { }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 // Import thư viện ReactiveFormsModule
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { ProductDetailComponent } from './pages/client-pase/product-detail/product-detail.component';
 import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
 import { ShowValidateComponent } from './components/show-validate/show-validate.component';
@@ -31,7 +31,8 @@ import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-c
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
 import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin-category-detail/admin-category-detail.component';
 import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
-
+import { SigninComponent } from './pages/client-pase/signin/signin.component';
+import { SignupComponent } from './pages/client-pase/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,10 +60,8 @@ import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail
     AdminCategoryFormComponent,
     AdminCategoryDetailComponent,
     PostDetailComponent,
-
-
-
-
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +70,8 @@ import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail
     FormsModule,
     HttpClientModule,
     FormsModule, // Đưa vào đây để FormComponent bên trên có thể dùng
-    ReactiveFormsModule, // Đưa vào để AdminProductForm sử dụng
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
