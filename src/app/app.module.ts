@@ -33,6 +33,11 @@ import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin
 import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
 import { SigninComponent } from './pages/client-pase/signin/signin.component';
 import { SignupComponent } from './pages/client-pase/signup/signup.component';
+// toastr angular
+import { NgToastModule } from 'ng-angular-popup';
+import { CartComponent } from './pages/client-pase/cart/cart.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +66,9 @@ import { SignupComponent } from './pages/client-pase/signup/signup.component';
     AdminCategoryDetailComponent,
     PostDetailComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -70,7 +77,11 @@ import { SignupComponent } from './pages/client-pase/signup/signup.component';
     FormsModule,
     HttpClientModule,
     FormsModule, // Đưa vào đây để FormComponent bên trên có thể dùng
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToastModule
+
+
+
 
   ],
   providers: [],

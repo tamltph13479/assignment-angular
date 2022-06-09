@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   constructor(private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private toast: NgToastService) {
     this.signupForm = new FormGroup({
       name: new FormControl(''),
       email: new FormControl('', Validators.email),
@@ -25,8 +27,10 @@ export class SignupComponent implements OnInit {
     // 1. Nhận dữ liệu từ form và call API login
     this.authService.signup(this.signupForm.value).subscribe(data => {
       console.log(data);
-
-      // this.router.navigateByUrl('/admin/products');
+      this.toast.success({ detail: 'dang ky thanh cong' })
+      this.router.navigateByUrl('/auth/signin');
+    }, () => {
+      this.toast.error({ detail: 'Ten hoac email ton tai' })
     });
   }
 }

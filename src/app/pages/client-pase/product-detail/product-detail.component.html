@@ -61,55 +61,59 @@
                     <span class="text-red-700 font-semibold text-2xl mr-5 mt-2">{{product.price}}</span>
                     <span class="font-semibold text-lg line-through mt-3">30.990.000₫</span>
                 </div>
+                <div class="mr-[70%] my-[10px] ">
+                    <input type="number" min="1" class="form-control cart-value" [value]="cartValue" (input)="onChangeCartValue($event)" />
 
-                <div class="box-Promo">
-                    <div class="endow py-[20px]">
-                        <span class="bg-[#e9ecef] px-3 font-bold">Ưu đãi thêm</span>
+                </div>
+
+                <div class=" box-Promo ">
+                    <div class="endow py-[20px] ">
+                        <span class="bg-[#e9ecef] px-3 font-bold ">Ưu đãi thêm</span>
                     </div>
-                    <ul class="content-promo">
-                        <li class="inline-flex">
+                    <ul class="content-promo ">
+                        <li class="inline-flex ">
 
                             <div>
                                 <span>
                                          Được kiểm tra hàng và Thanh toán khi nhận hàng.
                                         </span>
-                                <a routerLink="" class="text-blue-600 hover:underline">Xem chi tiết</a>
+                                <a routerLink=" " class="text-blue-600 hover:underline ">Xem chi tiết</a>
                             </div>
                         </li>
-                        <li class="inline-flex">
+                        <li class="inline-flex ">
 
                             <div>
                                 <span>
                                           Giao hàng trên Toàn Quốc
                                         </span>
-                                <a routerLink="" class="text-blue-600 hover:underline">Xem chi tiết</a>
+                                <a routerLink=" " class="text-blue-600 hover:underline ">Xem chi tiết</a>
                             </div>
                         </li>
-                        <li class="inline-flex">
+                        <li class="inline-flex ">
 
                             <div>
                                 <span>
                                             Thu cũ đổi mới trợ giá 15%
                                         </span>
-                                <a routerLink="" class="text-blue-600 hover:underline">Xem chi tiết</a>
+                                <a routerLink=" " class="text-blue-600 hover:underline ">Xem chi tiết</a>
                             </div>
                         </li>
-                        <li class="inline-flex">
+                        <li class="inline-flex ">
 
                             <div>
                                 <span>
                               Chiết khấu cao cho các đại lý và khách đặt sỉ
                                         </span>
-                                <a routerLink="" class="text-blue-600 hover:underline">Xem chi tiết</a>
+                                <a routerLink=" " class="text-blue-600 hover:underline ">Xem chi tiết</a>
                             </div>
                         </li>
-                        <li class="inline-flex">
+                        <li class="inline-flex ">
 
                             <div>
                                 <span>
                                             Tặng PMH 200.000đ mua bộ sách 
                                         </span>
-                                <a routerLink="" class="text-blue-600 hover:underline">Xem chi tiết</a>
+                                <a routerLink=" " class="text-blue-600 hover:underline ">Xem chi tiết</a>
                             </div>
                         </li>
 
@@ -117,34 +121,34 @@
                     </ul>
                 </div>
                 <div class="btn-buy ">
-                    <button class="w-full bg-red-700 mt-4 rounded-md text-white hover:bg-red-800">
+                    <button class="w-full bg-red-700 mt-4 rounded-md text-white hover:bg-red-800 " (click)="onAddToCart()"> 
                                 <div>
                                     <strong>MUA NGAY</strong>
                                 </div>
-                                <p class="text-sm">Giao hàng miễn phí hoặc nhận tại shop</p>
+                                <p class="text-sm ">Giao hàng miễn phí hoặc nhận tại shop</p>
                             </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="">
-        <h1 class="uppercase text-[16px] font-bold border-b-[1px] mt-2 pl-1"> Thông tin chi tiết sản phẩm </h1>
-        <p class="text-[14px] leading-[1.8] mb-3"> {{product.description}}
+    <div class=" ">
+        <h1 class="uppercase text-[16px] font-bold border-b-[1px] mt-2 pl-1 "> Thông tin chi tiết sản phẩm </h1>
+        <p class="text-[14px] leading-[1.8] mb-3 "> {{product.description}}
         </p>
     </div>
-    <div class="conten my-[20px]">
-        <h1 class="font-bold text-[20px] py-[20px]">New Arrivals</h1>
+    <div class="conten my-[20px] ">
+        <h1 class="font-bold text-[20px] py-[20px] ">New Arrivals</h1>
         <div class="product grid grid-cols-4 gap-5 ">
-            <form action="">
-                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg  ">
+            <form action=" ">
+                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg ">
                     <div class=" w-[100%] ">
-                        <a href="#"> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg" /></a>
+                        <a href="# "> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg " /></a>
                     </div>
-                    <div class="py-[10px] px-[10px] leading-8">
-                        <a href="#" class="no-underline">
-                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500">HP Pavilion 15</h4>
+                    <div class="py-[10px] px-[10px] leading-8 ">
+                        <a href="# " class="no-underline ">
+                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500 ">HP Pavilion 15</h4>
                         </a>
-                        <p class="text-[15px] text-[red]">$450.000000</p>
+                        <p class="text-[15px] text-[red] ">$450.000000</p>
                         <p>130,000,000 lượt xem</p>
                     </div>
                     <div class="conten-item ">
@@ -152,16 +156,16 @@
                     </div>
                 </div>
             </form>
-            <form action="">
-                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg  ">
-                    <div class=" w-[100%]  m-auto ">
-                        <a href="#"> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg" height="100px" /></a>
+            <form action=" ">
+                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg ">
+                    <div class=" w-[100%] m-auto ">
+                        <a href="# "> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg " height="100px " /></a>
                     </div>
-                    <div class="py-[10px] px-[10px] leading-8">
-                        <a href="#" class="no-underline">
-                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500">HP Pavilion 15</h4>
+                    <div class="py-[10px] px-[10px] leading-8 ">
+                        <a href="# " class="no-underline ">
+                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500 ">HP Pavilion 15</h4>
                         </a>
-                        <p class="text-[15px] text-[red]">$450.000000</p>
+                        <p class="text-[15px] text-[red] ">$450.000000</p>
                         <p>130,000,000 lượt xem</p>
                     </div>
                     <div class="conten-item ">
@@ -169,16 +173,16 @@
                     </div>
                 </div>
             </form>
-            <form action="">
-                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg  ">
+            <form action=" ">
+                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg ">
                     <div class=" w-[100%] ">
-                        <a href="#"> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg" /></a>
+                        <a href="# "> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg " /></a>
                     </div>
-                    <div class="py-[10px] px-[10px] leading-8">
-                        <a href="#" class="no-underline">
-                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500">HP Pavilion 15</h4>
+                    <div class="py-[10px] px-[10px] leading-8 ">
+                        <a href="# " class="no-underline ">
+                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500 ">HP Pavilion 15</h4>
                         </a>
-                        <p class="text-[15px] text-[red]">$450.000000</p>
+                        <p class="text-[15px] text-[red] ">$450.000000</p>
                         <p>130,000,000 lượt xem</p>
                     </div>
                     <div class="conten-item ">
@@ -186,16 +190,16 @@
                     </div>
                 </div>
             </form>
-            <form action="">
-                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg  ">
+            <form action=" ">
+                <div class=" khoiy border-solid border-2 border-[#f3f3f3] rounded-lg ">
                     <div class=" w-[100%] ">
-                        <a href="#"> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg" /></a>
+                        <a href="# "> <img src="https://newshop.vn/public/uploads/products/39708/sach-minh-chi-la-nguoi-binh-thuong.jpg " /></a>
                     </div>
-                    <div class="py-[10px] px-[10px] leading-8">
-                        <a href="#" class="no-underline">
-                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500">HP Pavilion 15</h4>
+                    <div class="py-[10px] px-[10px] leading-8 ">
+                        <a href="# " class="no-underline ">
+                            <h4 class="no-underline text-blue-600 visited:text-purple-600 hover:text-red-500 ">HP Pavilion 15</h4>
                         </a>
-                        <p class="text-[15px] text-[red]">$450.000000</p>
+                        <p class="text-[15px] text-[red] ">$450.000000</p>
                         <p>130,000,000 lượt xem</p>
                     </div>
                     <div class="conten-item ">

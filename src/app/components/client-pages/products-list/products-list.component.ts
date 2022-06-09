@@ -10,6 +10,7 @@ import { Product } from 'src/app/types/products';
 })
 export class ProductsListComponent implements OnInit {
   products: Product[];
+
   constructor(private productService: ProductService) {
     this.products = [];
   }
@@ -23,5 +24,6 @@ export class ProductsListComponent implements OnInit {
       this.products = data;
     });
   }
+
 
 }

@@ -18,10 +18,13 @@ export class CanAccessAdminGuard implements CanActivate {
     // 2. Kiểm tra nếu có thì cho vào admin
     if (loggedInUser) {
       return true;
-    }
-    // 3. Nếu không thì quay về màn login
-    this.router.navigateByUrl('/auth/signin');
+    } else
+      // 3. Nếu không thì quay về màn login
+      this.router.navigateByUrl('/');
     return false;
   }
+
+
+
 
 }

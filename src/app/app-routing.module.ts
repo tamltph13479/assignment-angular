@@ -8,6 +8,7 @@ import { ClientLayoutComponent } from './layouts/client-layout/client-layout.com
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { CartComponent } from './pages/client-pase/cart/cart.component';
 import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
 import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
 import { ProductDetailComponent } from './pages/client-pase/product-detail/product-detail.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
             component: ProductDetailComponent
           }
         ]
+      },
+      {
+        path: 'cart',
+        component: CartComponent
 
       },
       {

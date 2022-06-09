@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner-slideshow.component.css']
 })
 export class BannerSlideshowComponent implements OnInit {
-  images = [944, 1011, 984].map((n) => `https://thietkehosonangluc.edu.vn/uploads/images/thiet-ke-do-hoa-khac/banner-sach/1.png`);
+
 
   constructor() { }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/types/products';
 
@@ -11,9 +12,11 @@ import { Product } from 'src/app/types/products';
 export class ProductDetailComponent implements OnInit {
   id: string;
   product: Product;
+  cartValue: number;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private lsService: LocalStorageService // dùng để lấy các phương thức xử lý ls
 
   ) {
     this.id = "";
@@ -24,6 +27,7 @@ export class ProductDetailComponent implements OnInit {
       price: 0,
       description: ''
     }
+    this.cartValue = 1;
   }
 
   ngOnInit(): void {
@@ -31,5 +35,19 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProduct(this.id).subscribe((data) => {
       this.product = data;
     })
+  }
+  onChangeCartValue(event: any) {
+    this.cartValue = event.target.value;
+  }
+
+  onAddToCart() {
+    // Định nghĩa 1 sp trong giỏ hàng có cấu trúc là gì
+    const addItem = {
+      ...this.product,
+      value: +this.cartValue
+    };
+    this.lsService.setItem(addItem);
+    this.cartValue = 1;
+
   }
 }
