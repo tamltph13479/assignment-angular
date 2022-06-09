@@ -10,7 +10,10 @@ import { PostType } from '../types/post';
 export class PostService {
 
   constructor(private http: HttpClient) { }
-  getPost(): Observable<PostType[]> {
+  getPosts(): Observable<PostType[]> {
     return this.http.get<PostType[]>(environment.posts);
+  }
+  getPost(id: string): Observable<PostType> {
+    return this.http.get<PostType>(`${environment.posts}/${id}`);
   }
 }

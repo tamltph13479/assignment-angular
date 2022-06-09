@@ -8,6 +8,7 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
+import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
 import { ProductDetailComponent } from './pages/client-pase/product-detail/product-detail.component';
 import { SigninComponent } from './pages/client-pase/signin/signin.component';
 import { SignupComponent } from './pages/client-pase/signup/signup.component';
@@ -38,8 +39,17 @@ const routes: Routes = [
 
       },
       {
-        path: 'about',
-        component: PostListComponent
+        path: 'posts',
+        children: [
+          {
+            path: '',
+            component: PostListComponent
+          },
+          {
+            path: ':id',
+            component: PostDetailComponent
+          }
+        ]
 
       }
     ]

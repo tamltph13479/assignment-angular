@@ -23,6 +23,15 @@ import { BannerSlideshowComponent } from './components/client-pages/banner-slide
 import { PostListComponent } from './components/client-pages/post-list/post-list.component';
 import { SearchComponent } from './components/client-pages/search/search.component';
 import { AdviseComponent } from './components/client-pages/advise/advise.component';
+import { HeaderadminComponent } from './components/admin-pages/headeradmin/headeradmin.component';
+import { AdminPostDetailComponent } from './pages/admin/admin-posts/admin-post-detail/admin-post-detail.component';
+import { AdminPostListComponent } from './pages/admin/admin-posts/admin-post-list/admin-post-list.component';
+import { AdminPostFormComponent } from './pages/admin/admin-posts/admin-post-form/admin-post-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
+import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin-category-detail/admin-category-detail.component';
+import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +51,15 @@ import { AdviseComponent } from './components/client-pages/advise/advise.compone
     PostListComponent,
     SearchComponent,
     AdviseComponent,
+    HeaderadminComponent,
+    AdminPostDetailComponent,
+    AdminPostListComponent,
+    AdminPostFormComponent,
+    AdminCategoryListComponent,
+    AdminCategoryFormComponent,
+    AdminCategoryDetailComponent,
+    PostDetailComponent,
+
 
 
 

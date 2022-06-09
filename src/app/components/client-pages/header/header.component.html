@@ -8,7 +8,7 @@
         <ul class="w-[700px] mt-5 pl-10 flex ">
             <li><a class="px-[20px]" routerLink="">Homepage</a></li>
             <li><a class="px-[20px]" routerLink="/product">Product</a></li>
-            <li><a class="px-[20px]" routerLink="/about">Blog</a></li>
+            <li><a class="px-[20px]" routerLink="/posts">Blog</a></li>
             <li><a class="px-[20px]" routerLink="#">Phone</a></li>
             <li><a class="px-[20px]" routerLink="#">Contact</a></li>
 
@@ -18,13 +18,18 @@
 
 
 
-        <div class="signin pl-3">
+        <div class="signin pl-5 ">
+            <div class="flex">
 
-            <ul class="flex">
-                <a routerLink="signin">Singin</a>
-                <a routerLink="signup">Singup</a>
-            </ul>
+                <a routerLink="signup" class=" sm:ml-3">
+                    <button type="button" class=" inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[red] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sing up </button>
+                </a>
 
+                <a routerLink="signin" class=" sm:ml-3">
+                    <button type="button" class=" inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sing in</button>
+                </a>
+
+            </div>
         </div>
     </div>
 

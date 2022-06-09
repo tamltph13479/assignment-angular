@@ -1,5 +1,8 @@
-<button class="grid w-[200px] h-[100%]">
+<div *ngFor=" let categorys of category ">
+
+    <button class="grid w-[250px] h-[100%]">
             <ul class=" border-start border[#f3f3f3]">
-                <li class="px-[40px] py-[10px]  hover:bg-[#f3f3f3] list-none border-bottom "><a class="" routerLink="/#/categorypase/${category.id}">Dien thoai</a></li>
+                <li class="px-[40px] py-[10px]  hover:bg-[#f3f3f3] list-none border-bottom "><a class="" routerLink="/category/{{categorys.name}}">{{categorys.name}}</a></li>
             </ul>
             </button>
+</div>
