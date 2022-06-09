@@ -4,31 +4,46 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ShowValidateComponent } from './components/show-validate/show-validate.component';
-import { ProductClientComponent } from './product-client/product-client.component';
-import { AboutClientComponent } from './about-client/about-client.component';
-
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { HomeClientComponent } from './home-client/home-client.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 // Import thư viện ReactiveFormsModule
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductDetailComponent } from './pages/client-pase/product-detail/product-detail.component';
+import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
+import { ShowValidateComponent } from './components/show-validate/show-validate.component';
+import { NavadminComponent } from './components/admin-pages/navadmin/navadmin.component';
+import { HeaderComponent } from './components/client-pages/header/header.component';
+import { FooterComponent } from './components/client-pages/footer/footer.component';
+import { ProductsListComponent } from './components/client-pages/products-list/products-list.component';
+import { BannerSlideshowComponent } from './components/client-pages/banner-slideshow/banner-slideshow.component';
+import { PostListComponent } from './components/client-pages/post-list/post-list.component';
+import { SearchComponent } from './components/client-pages/search/search.component';
+import { AdviseComponent } from './components/client-pages/advise/advise.component';
 @NgModule({
   declarations: [
     AppComponent,
     ShowValidateComponent,
-    ProductClientComponent,
-    AboutClientComponent,
     ClientLayoutComponent,
     AdminLayoutComponent,
-    HomeClientComponent,
     AdminProductListComponent,
     AdminProductDetailComponent,
     AdminProductFormComponent,
+    ProductDetailComponent,
+    HomepagesComponent,
+    NavadminComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProductsListComponent,
+    BannerSlideshowComponent,
+    PostListComponent,
+    SearchComponent,
+    AdviseComponent,
+
+
 
   ],
   imports: [

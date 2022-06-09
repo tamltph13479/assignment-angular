@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutClientComponent } from './about-client/about-client.component';
-import { HomeClientComponent } from './home-client/home-client.component';
+import { PostListComponent } from './components/client-pages/post-list/post-list.component';
+import { ProductsListComponent } from './components/client-pages/products-list/products-list.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
-import { ProductClientComponent } from './product-client/product-client.component';
+import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
+import { ProductDetailComponent } from './pages/client-pase/product-detail/product-detail.component';
+import { SigninComponent } from './pages/client-pase/signin/signin.component';
+import { SignupComponent } from './pages/client-pase/signup/signup.component';
 
 
 const routes: Routes = [
@@ -17,20 +20,39 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeClientComponent
+        component: HomepagesComponent
 
       },
       {
         path: 'product',
-        component: ProductClientComponent
+        children: [
+          {
+            path: '',
+            component: ProductsListComponent
+          },
+          {
+            path: ':id',
+            component: ProductDetailComponent
+          }
+        ]
 
       },
       {
         path: 'about',
-        component: AboutClientComponent
+        component: PostListComponent
 
       }
     ]
+  },
+  {
+    path: 'signin',
+    component: SigninComponent,
+
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+
   },
   {
     path: 'admin',
@@ -60,7 +82,8 @@ const routes: Routes = [
       },
 
     ]
-  }
+  },
+
 ];
 
 @NgModule({
