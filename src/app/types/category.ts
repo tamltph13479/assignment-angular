@@ -4,3 +4,6 @@ export type CategoryType = {
 
 
 };
+export type CategoryCreate = {
+    name: string,
+};

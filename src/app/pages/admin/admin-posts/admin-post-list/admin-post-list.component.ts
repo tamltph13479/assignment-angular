@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
+import { PostType } from 'src/app/types/post';
 
 @Component({
   selector: 'app-admin-post-list',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPostListComponent implements OnInit {
 
-  constructor() { }
+  posts: PostType[];
+  constructor(private postsService: PostService) {
+    this.posts = [];
+  }
 
   ngOnInit(): void {
+    // với kiểu dữ liệu trả về là Observable thì có phương thức subscribe để lắng nghe
+    // bao giờ có kết quả sẽ trả về qua tham số và thực thi tiếp
+    this.onGetList();
+  }
+  onGetList() {
+    this.postsService.getPosts().subscribe((data) => {
+      this.posts = data;
+    });
+  }
+  onDelete(id: string) {
+    // confirm
+    const confirmDelete = confirm('Bạn có chắc chắn xoá không?');
+
+    if (confirmDelete && id) {
+      // Nếu có id thì xoá -> thực hiện call API xoá
+      this.postsService.deletePost(id).subscribe((data) => {
+        console.log(data); // {}
+        // Cập nhật lại dữ liệu mới
+        this.onGetList();
+      })
+    }
+
   }
 
 }

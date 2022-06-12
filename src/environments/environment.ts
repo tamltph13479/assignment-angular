@@ -9,7 +9,9 @@ export const environment = {
   posts: `${apiUrl}/posts`,
   categorys: `${apiUrl}/categorys`,
   login: `${apiUrl}/signin`,
-  signup: `${apiUrl}/signup`
+  signup: `${apiUrl}/signup`,
+  banners: `${apiUrl}/banners`,
+  users: `${apiUrl}/users`,
 };
 
 /*

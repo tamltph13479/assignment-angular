@@ -5,9 +5,16 @@ import { ProductsListComponent } from './components/client-pages/products-list/p
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
-import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
+import { AdminBannerFormComponent } from './pages/admin/admin-banner/admin-banner-form/admin-banner-form.component';
+import { AdminBannerListComponent } from './pages/admin/admin-banner/admin-banner-list/admin-banner-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
+import { AdminPostFormComponent } from './pages/admin/admin-posts/admin-post-form/admin-post-form.component';
+import { AdminPostListComponent } from './pages/admin/admin-posts/admin-post-list/admin-post-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { AdminUserFormComponent } from './pages/admin/admin-users/admin-user-form/admin-user-form.component';
+import { AdminUserListComponent } from './pages/admin/admin-users/admin-user-list/admin-user-list.component';
 import { CartComponent } from './pages/client-pase/cart/cart.component';
 import { HomepagesComponent } from './pages/client-pase/homepages/homepages.component';
 import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
@@ -79,8 +86,64 @@ const routes: Routes = [
     canActivate: [CanAccessAdminGuard],
     children: [
       {
+        path: 'post',
+        children: [
+          {
+            path: '',
+            component: AdminPostListComponent
+          },
+
+          {
+            path: 'create',
+            component: AdminPostFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AdminPostFormComponent
+          },
+
+        ]
+      },
+      {
+        path: 'category',
+        children: [
+          {
+            path: '',
+            component: AdminCategoryListComponent
+          },
+
+          {
+            path: 'create',
+            component: AdminCategoryFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AdminCategoryFormComponent
+          },
+        ]
+      },
+      {
+        path: 'user',
+        children: [
+          {
+            path: '',
+            component: AdminUserListComponent
+          },
+
+          {
+            path: 'create',
+            component: AdminUserFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AdminUserFormComponent
+          },
+        ]
+      },
+      {
         path: 'products',
         children: [
+
           {
             path: '',
             component: AdminProductListComponent
@@ -94,12 +157,27 @@ const routes: Routes = [
             path: 'edit/:id',
             component: AdminProductFormComponent
           },
+        ]
+      },
+      {
+        path: 'banner',
+        children: [
           {
-            path: ':id',
-            component: AdminProductDetailComponent
+            path: '',
+            component: AdminBannerListComponent
+          },
+
+          {
+            path: 'create',
+            component: AdminBannerFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AdminBannerFormComponent
           },
         ]
       },
+
 
     ]
   },

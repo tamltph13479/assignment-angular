@@ -38,7 +38,7 @@
                                                 <th> <span class="ml-2">Name</span> </th>
                                                 <th> <span class="ml-2">Image</span> </th>
                                                 <th> <span class="ml-2">Price</span> </th>
-                                                <th> <span class="ml-2">Desc</span> </th>
+
 
                                                 <th colSpan={2} class=""> <span class="pl-[50px]">Action</span> </th>
 
@@ -46,17 +46,13 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr *ngFor="let product of products" class="border-bottom text-[20px]">
-                                                <td class="">{{product._id}}</td>
+                                            <tr *ngFor="let product of products let i= index " class="border-bottom text-[20px]">
+                                                <td class="">{{i+1}}</td>
                                                 <td>{{product.name}}</td>
                                                 <td><img src={{product.img}} alt="" width="100px" /></td>
                                                 <td>{{product.price}}</td>
-
-                                                <td>
-                                                    <a routerLink="/admin/products/{{product._id}}"> <button class="btn btn-warning ">Details</button></a>
-                                                </td>
                                                 <td colSpan={2}>
-                                                    <button class="btn btn-primary">Update</button>
+                                                    <a routerLink="/admin/products/edit/{{product._id}}"> <button class="btn btn-primary">Update</button></a>
                                                     <button class="btn btn-danger" (click)="onDelete(product._id)">Remove</button></td>
                                             </tr>
 

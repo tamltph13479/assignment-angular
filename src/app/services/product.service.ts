@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Product } from '../types/products';
+import { Product, ProductCreate } from '../types/products';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,12 @@ export class ProductService {
   }
   deleteProduct(id: string | number): Observable<any> {
     return this.http.delete(`${environment.products}/${id}`);
+  }
+  createProduct(data: ProductCreate): Observable<Product> {
+    return this.http.post<Product>(`${environment.products}`, data);
+  }
+
+  updateProduct(id: number | string, data: ProductCreate): Observable<Product> {
+    return this.http.put<Product>(`${environment.products}/${id}`, data);
   }
 }

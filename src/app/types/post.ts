@@ -5,3 +5,8 @@ export type PostType = {
     content: string
 
 };
+export type PostCreate = {
+    title: string,
+    img: string,
+    content: string
+}

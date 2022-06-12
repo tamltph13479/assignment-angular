@@ -3,7 +3,8 @@ export type Product = {
     name: string,
     img: string,
     price: number,
-    description: string
+    description: string,
+    category?: string
 
 };
 export type ProductCart = {
@@ -14,3 +15,11 @@ export type ProductCart = {
     price: number,
     description: string
 }
+export type ProductCreate = {
+
+    name: string,
+    img: string,
+    price: number,
+    description: string,
+    category: string
+};

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
@@ -24,19 +23,20 @@ import { PostListComponent } from './components/client-pages/post-list/post-list
 import { SearchComponent } from './components/client-pages/search/search.component';
 import { AdviseComponent } from './components/client-pages/advise/advise.component';
 import { HeaderadminComponent } from './components/admin-pages/headeradmin/headeradmin.component';
-import { AdminPostDetailComponent } from './pages/admin/admin-posts/admin-post-detail/admin-post-detail.component';
 import { AdminPostListComponent } from './pages/admin/admin-posts/admin-post-list/admin-post-list.component';
 import { AdminPostFormComponent } from './pages/admin/admin-posts/admin-post-form/admin-post-form.component';
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
-import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin-category-detail/admin-category-detail.component';
 import { PostDetailComponent } from './pages/client-pase/post-detail/post-detail.component';
 import { SigninComponent } from './pages/client-pase/signin/signin.component';
 import { SignupComponent } from './pages/client-pase/signup/signup.component';
 // toastr angular
 import { NgToastModule } from 'ng-angular-popup';
 import { CartComponent } from './pages/client-pase/cart/cart.component';
-
+import { AdminUserListComponent } from './pages/admin/admin-users/admin-user-list/admin-user-list.component';
+import { AdminUserFormComponent } from './pages/admin/admin-users/admin-user-form/admin-user-form.component';
+import { AdminBannerListComponent } from './pages/admin/admin-banner/admin-banner-list/admin-banner-list.component';
+import { AdminBannerFormComponent } from './pages/admin/admin-banner/admin-banner-form/admin-banner-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,6 @@ import { CartComponent } from './pages/client-pase/cart/cart.component';
     ClientLayoutComponent,
     AdminLayoutComponent,
     AdminProductListComponent,
-    AdminProductDetailComponent,
     AdminProductFormComponent,
     ProductDetailComponent,
     HomepagesComponent,
@@ -58,16 +57,19 @@ import { CartComponent } from './pages/client-pase/cart/cart.component';
     SearchComponent,
     AdviseComponent,
     HeaderadminComponent,
-    AdminPostDetailComponent,
     AdminPostListComponent,
     AdminPostFormComponent,
     AdminCategoryListComponent,
     AdminCategoryFormComponent,
-    AdminCategoryDetailComponent,
     PostDetailComponent,
     SigninComponent,
     SignupComponent,
     CartComponent,
+    AdminUserListComponent,
+    AdminUserFormComponent,
+    AdminBannerListComponent,
+    AdminBannerFormComponent
+
 
   ],
   imports: [

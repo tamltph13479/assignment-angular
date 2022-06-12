@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/services/category.service';
-import { CategoryType } from 'src/app/types/category';
+import { UsersService } from 'src/app/services/users.service';
+import { UserType } from 'src/app/types/users';
 
 @Component({
-  selector: 'app-admin-category-list',
-  templateUrl: './admin-category-list.component.html',
-  styleUrls: ['./admin-category-list.component.css']
+  selector: 'app-admin-user-list',
+  templateUrl: './admin-user-list.component.html',
+  styleUrls: ['./admin-user-list.component.css']
 })
-export class AdminCategoryListComponent implements OnInit {
+export class AdminUserListComponent implements OnInit {
 
-  categorys: CategoryType[];
-  constructor(private categoryService: CategoryService) {
-    this.categorys = [];
+  users: UserType[];
+  constructor(private usersService: UsersService) {
+    this.users = [];
   }
 
   ngOnInit(): void {
@@ -20,8 +20,8 @@ export class AdminCategoryListComponent implements OnInit {
     this.onGetList();
   }
   onGetList() {
-    this.categoryService.getCategorys().subscribe((data) => {
-      this.categorys = data;
+    this.usersService.getuser().subscribe((data) => {
+      this.users = data;
     });
   }
   onDelete(id: string) {
@@ -30,7 +30,7 @@ export class AdminCategoryListComponent implements OnInit {
 
     if (confirmDelete && id) {
       // Nếu có id thì xoá -> thực hiện call API xoá
-      this.categoryService.deleteCategory(id).subscribe((data) => {
+      this.usersService.deleteusers(id).subscribe((data) => {
         console.log(data); // {}
         // Cập nhật lại dữ liệu mới
         this.onGetList();
@@ -38,4 +38,6 @@ export class AdminCategoryListComponent implements OnInit {
     }
 
   }
+
+
 }

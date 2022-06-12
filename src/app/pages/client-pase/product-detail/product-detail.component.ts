@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/types/products';
@@ -16,8 +17,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private lsService: LocalStorageService // dùng để lấy các phương thức xử lý ls
-
+    private lsService: LocalStorageService,// dùng để lấy các phương thức xử lý ls
+    private toast: NgToastService
   ) {
     this.id = "";
     this.product = {
@@ -48,6 +49,7 @@ export class ProductDetailComponent implements OnInit {
     };
     this.lsService.setItem(addItem);
     this.cartValue = 1;
+    this.toast.success({ detail: 'Dat mua thanh cong' })
 
   }
 }

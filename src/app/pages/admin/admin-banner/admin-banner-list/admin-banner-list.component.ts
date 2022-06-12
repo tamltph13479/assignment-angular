@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/services/category.service';
-import { CategoryType } from 'src/app/types/category';
+import { BannerService } from 'src/app/services/banner.service';
+import { BannerType } from 'src/app/types/banner';
 
 @Component({
-  selector: 'app-admin-category-list',
-  templateUrl: './admin-category-list.component.html',
-  styleUrls: ['./admin-category-list.component.css']
+  selector: 'app-admin-banner-list',
+  templateUrl: './admin-banner-list.component.html',
+  styleUrls: ['./admin-banner-list.component.css']
 })
-export class AdminCategoryListComponent implements OnInit {
-
-  categorys: CategoryType[];
-  constructor(private categoryService: CategoryService) {
-    this.categorys = [];
+export class AdminBannerListComponent implements OnInit {
+  banners: BannerType[];
+  constructor(private banerService: BannerService) {
+    this.banners = [];
   }
 
   ngOnInit(): void {
@@ -20,8 +19,8 @@ export class AdminCategoryListComponent implements OnInit {
     this.onGetList();
   }
   onGetList() {
-    this.categoryService.getCategorys().subscribe((data) => {
-      this.categorys = data;
+    this.banerService.getBanners().subscribe((data) => {
+      this.banners = data;
     });
   }
   onDelete(id: string) {
@@ -30,7 +29,7 @@ export class AdminCategoryListComponent implements OnInit {
 
     if (confirmDelete && id) {
       // Nếu có id thì xoá -> thực hiện call API xoá
-      this.categoryService.deleteCategory(id).subscribe((data) => {
+      this.banerService.deleteBanner(id).subscribe((data) => {
         console.log(data); // {}
         // Cập nhật lại dữ liệu mới
         this.onGetList();
@@ -38,4 +37,6 @@ export class AdminCategoryListComponent implements OnInit {
     }
 
   }
+
+
 }
