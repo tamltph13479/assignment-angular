@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { BannerService } from 'src/app/services/banner.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AdminBannerFormComponent implements OnInit {
   constructor(
     private bannerService: BannerService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
-    private activateRoute: ActivatedRoute,// lấy ra các tham số trong url
+    private activateRoute: ActivatedRoute,
+    private toast: NgToastService// lấy ra các tham số trong url
   ) {
     this.bannerForm = new FormGroup({
       img: new FormControl('', [
@@ -48,15 +50,23 @@ export class AdminBannerFormComponent implements OnInit {
 
     if (this.bannerId !== '0' && this.bannerId !== undefined) {
       return this.bannerService.updateBanner(this.bannerId, submitData).subscribe(data => {
+        this.toast.success({ detail: 'Cap nhap thanh cong' })
+
         this.router.navigateByUrl('/admin/banner');
+      }, () => {
+        this.toast.error({ detail: 'Cap nhat that bai' })
       });
     }
 
     // 2. Call API (Cần định nghĩa service và router điều hướng)
     return this.bannerService.createBanner(submitData).subscribe((data) => {
+      this.toast.success({ detail: 'Them thanh cong' })
+
       // 3. Sau khi API call thành công sẽ điều hướng về danh sách
       // this.router.navigate(['/admin', 'products']);
       this.router.navigateByUrl('/admin/banner');
+    }, () => {
+      this.toast.error({ detail: 'Them  that bai' })
     })
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class AdminPostFormComponent implements OnInit {
   constructor(
     private postService: PostService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
-    private activateRoute: ActivatedRoute,// lấy ra các tham số trong url
+    private activateRoute: ActivatedRoute,
+    private toast: NgToastService// lấy ra các tham số trong url
   ) {
     this.postForm = new FormGroup({
 
@@ -61,15 +63,23 @@ export class AdminPostFormComponent implements OnInit {
 
     if (this.postId !== '0' && this.postId !== undefined) {
       return this.postService.updatePostt(this.postId, submitData).subscribe(data => {
+        this.toast.success({ detail: 'cap nhap thanh cong' })
+
         this.router.navigateByUrl('/admin/post');
+      }, () => {
+        this.toast.error({ detail: 'cap nhap that bai' })
       });
     }
 
     // 2. Call API (Cần định nghĩa service và router điều hướng)
     return this.postService.createPost(submitData).subscribe((data) => {
+      this.toast.success({ detail: 'Them thanh cong' })
+
       // 3. Sau khi API call thành công sẽ điều hướng về danh sách
       // this.router.navigate(['/admin', 'products']);
       this.router.navigateByUrl('/admin/post');
+    }, () => {
+      this.toast.error({ detail: 'Them that bai' })
     })
 
   }

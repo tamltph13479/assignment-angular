@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { CategoryType } from 'src/app/types/category';
@@ -17,7 +18,8 @@ export class AdminProductFormComponent implements OnInit {
     private productService: ProductService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
     private activateRoute: ActivatedRoute,// lấy ra các tham số trong url
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private toast: NgToastService
   ) {
     this.productForm = new FormGroup({
 
@@ -25,7 +27,7 @@ export class AdminProductFormComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(32),
-        this.onValidateNameHasProduct
+
       ]),
       img: new FormControl('', [
         Validators.required,
@@ -88,15 +90,23 @@ export class AdminProductFormComponent implements OnInit {
 
     if (this.productId !== '0' && this.productId !== undefined) {
       return this.productService.updateProduct(this.productId, submitData).subscribe(data => {
+        this.toast.success({ detail: 'Cap nhap thanh cong' })
+
         this.router.navigateByUrl('/admin/products');
+      }, () => {
+        this.toast.error({ detail: 'Cap nhat loi' })
       });
     }
 
     // 2. Call API (Cần định nghĩa service và router điều hướng)
     return this.productService.createProduct(submitData).subscribe((data) => {
+      this.toast.success({ detail: 'Them thanh cong' })
+
       // 3. Sau khi API call thành công sẽ điều hướng về danh sách
       // this.router.navigate(['/admin', 'products']);
       this.router.navigateByUrl('/admin/products');
+    }, () => {
+      this.toast.error({ detail: 'Them that bai' })
     })
 
   }

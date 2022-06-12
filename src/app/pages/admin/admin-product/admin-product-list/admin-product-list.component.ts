@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/types/products';
 
@@ -9,7 +10,8 @@ import { Product } from 'src/app/types/products';
 })
 export class AdminProductListComponent implements OnInit {
   products: Product[];
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+    private toast: NgToastService) {
     this.products = [];
   }
 
@@ -31,8 +33,12 @@ export class AdminProductListComponent implements OnInit {
       // Nếu có id thì xoá -> thực hiện call API xoá
       this.productService.deleteProduct(id).subscribe((data) => {
         console.log(data); // {}
+        this.toast.success({ detail: 'Xoa thanh cong' })
+
         // Cập nhật lại dữ liệu mới
         this.onGetList();
+      }, () => {
+        this.toast.error({ detail: 'Xoa that bai' })
       })
     }
 

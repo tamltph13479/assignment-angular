@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { PostService } from 'src/app/services/post.service';
 import { PostType } from 'src/app/types/post';
 
@@ -10,7 +11,8 @@ import { PostType } from 'src/app/types/post';
 export class AdminPostListComponent implements OnInit {
 
   posts: PostType[];
-  constructor(private postsService: PostService) {
+  constructor(private postsService: PostService,
+    private toast: NgToastService) {
     this.posts = [];
   }
 
@@ -32,8 +34,12 @@ export class AdminPostListComponent implements OnInit {
       // Nếu có id thì xoá -> thực hiện call API xoá
       this.postsService.deletePost(id).subscribe((data) => {
         console.log(data); // {}
+        this.toast.success({ detail: 'Xoa thanh cong' })
+
         // Cập nhật lại dữ liệu mới
         this.onGetList();
+      }, () => {
+        this.toast.error({ detail: 'Loi' })
       })
     }
 

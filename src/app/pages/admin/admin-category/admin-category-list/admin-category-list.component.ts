@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { CategoryService } from 'src/app/services/category.service';
 import { CategoryType } from 'src/app/types/category';
 
@@ -10,7 +11,8 @@ import { CategoryType } from 'src/app/types/category';
 export class AdminCategoryListComponent implements OnInit {
 
   categorys: CategoryType[];
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService,
+    private toast: NgToastService) {
     this.categorys = [];
   }
 
@@ -32,8 +34,12 @@ export class AdminCategoryListComponent implements OnInit {
       // Nếu có id thì xoá -> thực hiện call API xoá
       this.categoryService.deleteCategory(id).subscribe((data) => {
         console.log(data); // {}
+        this.toast.success({ detail: 'Xoa thanh cong' })
+
         // Cập nhật lại dữ liệu mới
         this.onGetList();
+      }, () => {
+        this.toast.error({ detail: 'Loi' })
       })
     }
 

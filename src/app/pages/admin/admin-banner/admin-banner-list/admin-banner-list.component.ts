@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { BannerService } from 'src/app/services/banner.service';
 import { BannerType } from 'src/app/types/banner';
 
@@ -9,7 +10,8 @@ import { BannerType } from 'src/app/types/banner';
 })
 export class AdminBannerListComponent implements OnInit {
   banners: BannerType[];
-  constructor(private banerService: BannerService) {
+  constructor(private banerService: BannerService,
+    private toast: NgToastService) {
     this.banners = [];
   }
 
@@ -31,9 +33,14 @@ export class AdminBannerListComponent implements OnInit {
       // Nếu có id thì xoá -> thực hiện call API xoá
       this.banerService.deleteBanner(id).subscribe((data) => {
         console.log(data); // {}
+        this.toast.success({ detail: 'Xoa thanh cong' })
+
         // Cập nhật lại dữ liệu mới
         this.onGetList();
-      })
+      }, () => {
+        this.toast.error({ detail: 'Xoa that bai' })
+      }
+      )
     }
 
   }

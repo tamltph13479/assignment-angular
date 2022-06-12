@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class AdminUserFormComponent implements OnInit {
   constructor(
     private userService: UsersService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
-    private activateRoute: ActivatedRoute,// lấy ra các tham số trong url
+    private activateRoute: ActivatedRoute,
+    private toast: NgToastService
+    // lấy ra các tham số trong url
   ) {
     this.userForm = new FormGroup({
 
@@ -64,16 +67,26 @@ export class AdminUserFormComponent implements OnInit {
 
     if (this.userId !== '0' && this.userId !== undefined) {
       return this.userService.updateusers(this.userId, submitData).subscribe(data => {
+        this.toast.success({ detail: 'dang ky thanh cong' })
+
         this.router.navigateByUrl('/admin/user');
+      }, () => {
+        this.toast.error({ detail: 'Ten hoac email ton tai' })
       });
     }
 
     // 2. Call API (Cần định nghĩa service và router điều hướng)
     return this.userService.createusers(submitData).subscribe((data) => {
-      // 3. Sau khi API call thành công sẽ điều hướng về danh sách
+      this.toast.success({ detail: 'dang ky thanh cong' })
+
       // this.router.navigate(['/admin', 'products']);
       this.router.navigateByUrl('/admin/user');
-    })
+    }, () => {
+      this.toast.error({ detail: 'Ten hoac email ton tai' })
+    }
+
+
+    )
 
   }
 

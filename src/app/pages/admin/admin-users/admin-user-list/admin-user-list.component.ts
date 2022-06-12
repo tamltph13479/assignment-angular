@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { UsersService } from 'src/app/services/users.service';
 import { UserType } from 'src/app/types/users';
 
@@ -10,7 +11,8 @@ import { UserType } from 'src/app/types/users';
 export class AdminUserListComponent implements OnInit {
 
   users: UserType[];
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService,
+    private toast: NgToastService) {
     this.users = [];
   }
 
@@ -32,8 +34,12 @@ export class AdminUserListComponent implements OnInit {
       // Nếu có id thì xoá -> thực hiện call API xoá
       this.usersService.deleteusers(id).subscribe((data) => {
         console.log(data); // {}
+        this.toast.success({ detail: 'Xoa thanh cong' })
+
         // Cập nhật lại dữ liệu mới
         this.onGetList();
+      }, () => {
+        this.toast.error({ detail: 'loi' })
       })
     }
 
